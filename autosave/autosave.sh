@@ -9,4 +9,5 @@ do
 	git commit -m "autosave"
 	git branch autosave
 	git checkout autosave
+	git push origin autosave
 done
