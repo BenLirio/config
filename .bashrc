@@ -116,4 +116,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-cd ~/src/github.com/BenLirio
+if [ -d ~/src/github.com/BenLirio ]; then
+	cd ~/src/github.com/BenLirio
+else
+	echo "Create ~/src/gihub.com/BenLirio"
+fi
+
