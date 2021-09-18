@@ -116,6 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Change into my github repository if it exists, or ask me to create it.
 repo_path=~/src/github.com/BenLirio
 
 if [ -d $repo_path ]; then
@@ -124,9 +125,30 @@ else
     echo "Create ${repo_path}"
 fi
 
+# Load my vim config file from BenLirio/config/.vimrc
 if [ -f ${repo_path}/config/.vimrc ]; then
 	export VIMINIT="source ${repo_path}/config/.vimrc"
 else
     echo "\"${repo_path}/config/.vimrc\" does not exist"
 fi
 
+# Check to see if my most used commands are installed
+if ! command -v git &> /dev/null
+then
+    echo "WARNING: git could not be found"
+fi
+
+if ! command -v vim &> /dev/null
+then
+    echo "WARNING: vim could not be found"
+fi
+
+if ! command -v gh &> /dev/null
+then
+    echo "WARNING: gh could not be found"
+fi
+
+if ! command -v less &> /dev/null
+then
+    echo "WARNING: less could not be found"
+fi
