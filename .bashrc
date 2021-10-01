@@ -43,7 +43,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+# force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -85,7 +85,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -116,9 +116,39 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [ -d ~/src/github.com/BenLirio ]; then
-	cd ~/src/github.com/BenLirio
+# Change into my github repository if it exists, or ask me to create it.
+repo_path=~/src/github.com/BenLirio
+
+if [ -d $repo_path ]; then
+	cd $repo_path
 else
-	echo "Create ~/src/gihub.com/BenLirio"
+    echo "Create ${repo_path}"
 fi
 
+# Load my vim config file from BenLirio/config/.vimrc
+#if [ -f ${repo_path}/config/.vimrc ]; then
+	#export VIMINIT="source ${repo_path}/config/.vimrc"
+#else
+    #echo "\"${repo_path}/config/.vimrc\" does not exist"
+#fi
+
+# Check to see if my most used commands are installed
+if ! command -v git &> /dev/null
+then
+    echo "WARNING: git could not be found"
+fi
+
+if ! command -v vim &> /dev/null
+then
+    echo "WARNING: vim could not be found"
+fi
+
+if ! command -v gh &> /dev/null
+then
+    echo "WARNING: gh could not be found"
+fi
+
+if ! command -v less &> /dev/null
+then
+    echo "WARNING: less could not be found"
+fi
