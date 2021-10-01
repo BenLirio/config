@@ -103,9 +103,8 @@ func main() {
         }
         block.Decrypt(plainBytes, encryptedBytes)
     }
-    for i := len(encryptedBytes)-1; i >= 0; i-- {
-        fmt.Println(i, encryptedBytes[i])
-        if encryptedBytes[i] == 0 {
+    for i := len(plainBytes)-1; i >= 0; i-- {
+        if plainBytes[i] == 0 {
             destinationFile.Write(plainBytes[:i])
             break
         }
