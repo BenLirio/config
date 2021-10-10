@@ -126,11 +126,11 @@ else
 fi
 
 # Load my vim config file from BenLirio/config/.vimrc
-#if [ -f ${repo_path}/config/.vimrc ]; then
-	#export VIMINIT="source ${repo_path}/config/.vimrc"
-#else
-    #echo "\"${repo_path}/config/.vimrc\" does not exist"
-#fi
+if [ -f ${repo_path}/config/.vimrc ]; then
+       export VIMINIT="source ${repo_path}/config/.vimrc"
+else
+   echo "\"${repo_path}/config/.vimrc\" does not exist"
+fi
 
 # Check to see if my most used commands are installed
 if ! command -v git &> /dev/null

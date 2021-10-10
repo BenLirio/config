@@ -10,30 +10,35 @@ set shiftwidth=4
 " On pressing <TAB> insert 4 spaces
 set expandtab
 
-py3 <<EOF
-def codex():
-    import vim
-    import os
-    import openai
 
-    openai.api_key = os.getenv("OPENAI_API_KEY")
-    prompt = "\n".join(list(vim.current.range))
 
-    response = openai.Completion.create(
-      engine="davinci-codex",
-      prompt=prompt,
-      temperature=0,
-      max_tokens=200,
-      top_p=1,
-      frequency_penalty=0,
-      presence_penalty=0,
-    )
-    lines = response.choices[0].text.split("\n")
-    idx = vim.current.range.end
-    vim.current.buffer[idx] += lines[0]
-    vim.current.buffer.append(lines[1:], idx+1)
-EOF
-map ,c :py3 codex() <CR>
+
+" Others
+
+"py3 <<EOF
+"def codex():
+"    import vim
+"    import os
+"    import openai
+"
+"    openai.api_key = os.getenv("OPENAI_API_KEY")
+"    prompt = "\n".join(list(vim.current.range))
+"
+"    response = openai.Completion.create(
+"      engine="davinci-codex",
+"      prompt=prompt,
+"      temperature=0,
+"      max_tokens=200,
+"      top_p=1,
+"      frequency_penalty=0,
+"      presence_penalty=0,
+"    )
+"    lines = response.choices[0].text.split("\n")
+"    idx = vim.current.range.end
+"    vim.current.buffer[idx] += lines[0]
+"    vim.current.buffer.append(lines[1:], idx+1)
+"EOF
+"map ,c :py3 codex() <CR>
 
 "Go
 "map <space>gof :%!gofmt <Return>
