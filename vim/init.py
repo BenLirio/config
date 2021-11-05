@@ -1,15 +1,15 @@
 import vim
 
 vim.command("command Math :py3file ~/src/github.com/BenLirio/config/vim/eval-line.py")
+vim.command("nm M :py3file ~/src/github.com/BenLirio/config/vim/manual.py<CR>")
+vim.command("nm 1M :py3file ~/src/github.com/BenLirio/config/vim/manual-edit.py<CR>")
+vim.command("colorscheme torte")
+
 
 vim.command("syntax on")
 vim.command("set autoindent")
 
-#"Indent
-#filetype plugin indent on
-#" Existing tab with 4 spaces
-#set tabstop=4
-#" When pressing >
-#set shiftwidth=4
-#" On pressing <TAB> insert 4 spaces
-#set expandtab
+vim.command("filetype plugin indent on")
+vim.command("set tabstop=4")
+vim.command("set shiftwidth=4")
+vim.command("set expandtab")
