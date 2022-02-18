@@ -152,3 +152,6 @@ if ! command -v less &> /dev/null
 then
     echo "WARNING: less could not be found"
 fi
+
+export GOBIN=${repo_path}/config/bin/
+export PATH=$PATH:${repo_path}/config/bin/
